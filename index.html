@@ -23,6 +23,7 @@
         <script src="js/script.js"></script>
         <script src="js/settings.js"></script>
         <script src="js/klass.min.js"></script>
+        <script src="js/connection.js"></script>
         <script src="js/code.photoswipe.jquery-3.0.5.min.js"></script>
     </head>
 
@@ -36,14 +37,15 @@
 				<a href="#login" data-rel="popup" data-position-to="window" data-role="button">Login</a>
 				<div data-role="popup" id="login" data-theme="a">
 					<form style="padding:10px 20px;">
-						<h3>Please sign in</h3>
-						<label for="un" class="ui-hidden-accessible">Username:</label>
-						<input type="text" name="user" id="un" placeholder="username" />
+						<h3>Please log in</h3>
+						<label for="un" class="ui-hidden-accessible">Email:</label>
+						<input type="text" name="user" id="un" placeholder="email" />
 				 
 						<label for="pw" class="ui-hidden-accessible">Password:</label>
 						<input type="password" name="pass" id="pw" placeholder="password" />
-				 
-						<a data-role="button" href="#homelog" data-corners="false" data-theme="b">Submit</a>
+						
+						<div id="adminLoginMsg"></div>
+						<a data-role="button" href="#homelog" data-corners="false" data-theme="b" id="submit">Submit</a>
 					</form>
 				</div>
             </div>
@@ -56,7 +58,7 @@
                             View Flood
                         </a>
 
-                        <a data-theme="d" data-corners="false" data-role="button" href="#portfolio">
+                        <a data-theme="d" data-corners="false" data-role="button" href="#reference">
                             <img src="images/icons/round/64x64/reference.png" alt="rss" style="display: block; margin: 0 auto">
                             Reference
                         </a>
@@ -66,7 +68,7 @@
                             Social
                         </a>
 
-                        <a data-theme="d" data-corners="false" data-role="button" href="#contact">
+                        <a data-theme="d" data-corners="false" data-role="button" href="#emergency">
                             <img src="images/icons/round/64x64/emergency.png" alt="mail" style="display: block; margin: 0 auto">
                             Emergency
                         </a>
@@ -95,17 +97,17 @@
                             View Flood
                         </a>
 						
-						<a data-theme="d" data-corners="false" data-role="button" href="#contact">
+						<a data-theme="d" data-corners="false" data-role="button" href="#add_unit">
                             <img src="images/icons/round/64x64/addunit.png" alt="mail" style="display: block; margin: 0 auto">
                             Add Unit
                         </a>
 						
-						<a data-theme="d" data-corners="false" data-role="button" href="#contact">
+						<a data-theme="d" data-corners="false" data-role="button" href="#unit_mgr">
                             <img src="images/icons/round/64x64/unitmgr.png" alt="mail" style="display: block; margin: 0 auto">
                             Unit Mgr.
                         </a>
 
-                        <a data-theme="d" data-corners="false" data-role="button" href="#portfolio">
+                        <a data-theme="d" data-corners="false" data-role="button" href="#reference">
                             <img src="images/icons/round/64x64/reference.png" alt="rss" style="display: block; margin: 0 auto">
                             Reference
                         </a>
@@ -115,7 +117,7 @@
                             Social
                         </a>
 
-                        <a data-theme="d" data-corners="false" data-role="button" href="#contact">
+                        <a data-theme="d" data-corners="false" data-role="button" href="#emergency">
                             <img src="images/icons/round/64x64/emergency.png" alt="mail" style="display: block; margin: 0 auto">
                             Emergency
                         </a>
@@ -160,168 +162,125 @@
             </div>
         </div>
 
-        <!-- portfolio page -->
-        <div data-role="page" id="portfolio" data-title="portfolio">
+        <!-- reference page -->
+        <div data-role="page" id="reference" data-title="reference">
             <div data-role="header">
-                <h1>My Portfolio</h1>
+                <h1>Reference</h1>
                 <a data-role="button" href="#home" data-transition="flip" data-icon="home" data-corners="false">Home</a>
             </div>
             <div data-role="content">
-
-                <ul data-inset="true" data-role="listview" class="ui-listview ui-listview-inset ui-corner-all ui-shadow ui-corner-none">
-
-                    <!-- portfolio item 1 -->
-                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="false" data-iconpos="right" data-theme="c" class="portfolio-item ui-btn ui-btn-icon-right ui-li ui-li-has-alt ui-li-has-thumb ui-first-child ui-btn-up-c ui-corner-none"><div class="ui-btn-inner ui-li ui-li-has-alt">
-                        <div class="ui-btn-text">
-                            <a href="#portfolio1" class="ui-link-inherit ui-corner-none">
-                                <img src="images/portfolio/1/thumb/1_1.jpg" class="ui-li-thumb ui-corner-none">
-                                <h3 class="ui-li-heading">Portfolio Item 1</h3>
-                                <p class="ui-li-desc">A portfolio item example.</p>
-                            </a>
-                        </div>
-                    </div>
-                    <a href="#portfolio1" title="Purchase album" class="ui-li-link-alt ui-btn ui-btn-icon-notext ui-btn-up-c" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="false" data-iconpos="notext" data-theme="c"><span class="ui-btn-inner"><span class="ui-btn-text"></span><span data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-icon="arrow-r" data-iconpos="notext" data-theme="b" title="" class="ui-btn ui-btn-up-d ui-shadow ui-btn-corner-all ui-btn-icon-notext"><span class="ui-btn-inner"><span class="ui-btn-text"></span><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></span></span></span></a></li>
-
-                    <!-- portfolio item 2 -->
-                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="false" data-iconpos="right" data-theme="c" class="portfolio-item ui-btn ui-btn-icon-right ui-li ui-li-has-alt ui-li-has-thumb ui-first-child ui-btn-up-c"><div class="ui-btn-inner ui-li ui-li-has-alt">
-                        <div class="ui-btn-text">
-                            <a href="#portfolio2" class="ui-link-inherit">
-                                <img src="images/portfolio/2/thumb/2_1.jpg" class="ui-li-thumb">
-                                <h3 class="ui-li-heading">Portfolio Item 2</h3>
-                                <p class="ui-li-desc">Another portfolio item example.</p>
-                            </a>
-                        </div>
-                    </div>
-                    <a href="#portfolio2" title="Purchase album" class="ui-li-link-alt ui-btn ui-btn-icon-notext ui-btn-up-c" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="false" data-iconpos="notext" data-theme="c"><span class="ui-btn-inner"><span class="ui-btn-text"></span><span data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-icon="arrow-r" data-iconpos="notext" data-theme="b" title="" class="ui-btn ui-btn-up-d ui-shadow ui-btn-corner-all ui-btn-icon-notext"><span class="ui-btn-inner"><span class="ui-btn-text"></span><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></span></span></span>
-                    </a></li>
-
-                    <!-- portfolio item 3 -->
-                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="false" data-iconpos="right" data-theme="c" class="portfolio-item ui-btn ui-btn-icon-right ui-li ui-li-has-alt ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li ui-li-has-alt"><div class="ui-btn-text"><a href="#portfolio3" class="ui-link-inherit">
-                    <img src="images/portfolio/4/thumb/4_1.jpg" class="ui-li-thumb">
-                    <h3 class="ui-li-heading">Portfolio Gallery 1</h3>
-                    <p class="ui-li-desc">A portfolio gallery example.</p></a>
-
-                    </div></div><a href="#portfolio3" title="Purchase album" class="ui-li-link-alt ui-btn ui-btn-icon-notext ui-btn-up-c" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="false" data-iconpos="notext" data-theme="c"><span class="ui-btn-inner"><span class="ui-btn-text"></span><span data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-icon="arrow-r" data-iconpos="notext" data-theme="b" title="" class="ui-btn ui-btn-up-d ui-shadow ui-btn-corner-all ui-btn-icon-notext"><span class="ui-btn-inner"><span class="ui-btn-text"></span><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></span></span></span></a></li>
-
-                    <!-- portfolio item 4 -->
-                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="false" data-iconpos="right" data-theme="c" class="portfolio-item ui-btn ui-btn-icon-right ui-li ui-li-has-alt ui-li-has-thumb ui-btn-up-c ui-corner-none"><div class="ui-btn-inner ui-li ui-li-has-alt"><div class="ui-btn-text"><a href="#portfolio4" class="ui-link-inherit">
-                    <img src="images/portfolio/3/thumb/3_1.jpg" class="ui-li-thumb ui-corner-none">
-                    <h3 class="ui-li-heading">Portfolio Gallery 2</h3>
-                    <p class="ui-li-desc">Another portfolio gallery example.</p></a>
-
-                    </div></div><a href="#portfolio4" title="Purchase album" class="ui-li-link-alt ui-btn ui-btn-icon-notext ui-btn-up-d" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="false" data-iconpos="notext" data-theme="c"><span class="ui-btn-inner"><span class="ui-btn-text"></span><span data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-icon="arrow-r" data-iconpos="notext" data-theme="d" title="" class="ui-btn ui-btn-up-d ui-shadow ui-btn-corner-all ui-btn-icon-notext"><span class="ui-btn-inner"><span class="ui-btn-text"></span><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></span></span></span></a></li>
-
-                </ul>
+			
+				<table data-role="table" id="my-table" data-mode="reflow">
+				  <thead>
+					<tr>
+					  <th>Category</th>
+					  <th>Gross Vehicle Weight Rating</th>
+					  <th>Vehicles</th>
+					</tr>
+				  </thead>
+				  <tbody>
+					<tr>
+					  <td>Light</td>
+					  <td>0-62 kN (0-14,000 lbs.)</a></td>
+					  <td>bicycle, motorcycle, car, wagon, pickup trucks, ambulances, parcel delivery</td>
+					</tr>
+				  </tbody>
+				  <tbody>
+					<tr>
+					  <td>Medium</td>
+					  <td>62-147 kN (14,001-33,000 lbs.)</a></td>
+					  <td>city cargo van, delivery truck, wrecker, school bus</td>
+					</tr>
+				  </tbody>
+				  <tbody>
+					<tr>
+					  <td>Heavy</td>
+					  <td>147 kN and over (33,000 lbs. and over)</a></td>
+					  <td>truck tractor, concrete mixer, dump truck, fire truck, city bus</td>
+					</tr>
+				  </tbody>
+				</table>
+				
+				<div data-role="collapsible" data-collapsed="true">
+					<h3>View Image</h3>
+					<p><img src="images/snip.png" alt="Vehicle Classification" width="100%"/></p>
+				</div>
+				
+				<div data-role="collapsible" data-collapsed="true" class="source">
+					<h3>Source</h3>
+					<a href="http://www.google.com/patents/WO2007073375A1?cl=en"><i>Vehicle Classification 1</br></i></a>
+					<a href="http://www.docstoc.com/docs/37102525/Austroads-Vehicle-Classification-System"><i>Vehicle Classification 2</i></a>
+				</div>
 
                 <div>
-                    <!-- previous page link -->
-                    <a class="previous-btn" data-theme="c" data-corners="false" data-role="button" data-inline="true" data-icon="arrow-l" href="#profile">
-                        <img src="images/icons/round/64x64/profile.png" alt="rss" style="display: block; margin: 0 auto">
-                        Profile
-                    </a>
-
                     <!-- next page link -->
-                    <a class="next-btn" data-theme="c" data-corners="false" data-role="button" data-inline="true" data-icon="arrow-r" data-iconpos="right" href="#social">
-                        <img src="images/icons/round/64x64/linkedin.png" alt="rss" style="display: block; margin: 0 auto">
-                        Social
+                    <a class="next-btn" data-theme="c" data-corners="false" data-role="button" data-inline="true" data-icon="arrow-r" data-iconpos="right" href="#reference2">
+                        Next
                     </a>
                 </div>
 
             </div>
             <div data-role="footer">
                 <h2>RoadFloodPH</h2>
-                <p class="copyright">&copy; Copyright 2013</p>
+                <p class="copyright">&copy; Copyright 2014</p>
             </div>
         </div>
-
-        <!-- portfolio page 1 -->
-        <div data-role="page" id="portfolio1" data-title="portfolio1">
+		
+		<!-- reference2 page -->
+		
+		<div data-role="page" id="reference2" data-title="reference2">
             <div data-role="header">
-                <h1>Portfolio Item 1</h1>
-                <a data-role="button" href="#portfolio" data-transition="flip" data-icon="arrow-l" data-corners="false">Back</a>
+                <h1>Reference</h1>
+                <a data-role="button" href="#home" data-transition="flip" data-icon="home" data-corners="false">Home</a>
             </div>
             <div data-role="content">
 
-                <img src="images/portfolio/1/full/1_1.jpg" alt="portfolio item 1" />
+				<p><img src="images/flood-gauge.jpg" id="flood_gauge" alt="MMDA Flood Gauge" width="100%" /></p>
+				<div class="source">
+					Source: <a href="Source: http://jdbelmonte.wordpress.com/2013/08/20/mmda-flood-gauge"><i>jdbelmonte@wordpress</br></i></a>
+				</div>
 
-                <p>Career portfolios are used to plan, organize and document education, work samples and skills. People use career portfolios to apply to jobs, apply to college or training programs, get a higher salary, show transferable skills, and to track personal development. They are more in-depth than a resume, which is used to summarize the above in one or two pages. Career portfolios serve as proof of one's skills, abilities, and potential in the future. Career portfolios are becoming common in high schools, college, and workforce development.[citation needed] Many school programs will have students create, update, and use a career portfolio before moving on to the next level in life. <a href="http://en.wikipedia.org/wiki/Portfolio">Wiki</a></p>
+                <div>
+                    <!-- previous page link -->
+                    <a class="previous-btn" data-theme="c" data-corners="false" data-role="button" data-inline="true" data-icon="arrow-l" href="#reference">
+                        Back
+                    </a>
+
+                    <!-- next page link -->
+                    <a class="next-btn" data-theme="c" data-corners="false" data-role="button" data-inline="true" data-icon="arrow-r" data-iconpos="right" href="#reference3">
+                        Next
+                    </a>
+                </div>
 
             </div>
             <div data-role="footer">
                 <h2>RoadFloodPH</h2>
-                <p class="copyright">&copy; Copyright 2013</p>
+                <p class="copyright">&copy; Copyright 2014</p>
             </div>
         </div>
-
-        <!-- portfolio page 2 -->
-        <div data-role="page" id="portfolio2" data-title="portfolio2">
+		
+		<!-- reference3 page -->
+		
+		<div data-role="page" id="reference3" data-title="reference3">
             <div data-role="header">
-                <h1>Portfolio Item 2</h1>
-                <a data-role="button" href="#portfolio" data-transition="flip" data-icon="arrow-l" data-corners="false">Back</a>
+                <h1>Reference</h1>
+                <a data-role="button" href="#home" data-transition="flip" data-icon="home" data-corners="false">Home</a>
             </div>
             <div data-role="content">
+			
+				<p><img src="images/mmda.jpg" id="mmda" alt="MMDA Flood Level Indicator" width="100%" /></p>
 
-                <img src="images/portfolio/2/full/2_1.jpg" alt="portfolio item 2" />
-
-                <p>Career portfolios are used to plan, organize and document education, work samples and skills. People use career portfolios to apply to jobs, apply to college or training programs, get a higher salary, show transferable skills, and to track personal development. They are more in-depth than a resume, which is used to summarize the above in one or two pages. Career portfolios serve as proof of one's skills, abilities, and potential in the future. Career portfolios are becoming common in high schools, college, and workforce development.[citation needed] Many school programs will have students create, update, and use a career portfolio before moving on to the next level in life. <a href="http://en.wikipedia.org/wiki/Portfolio">Wiki</a></p>
+                <div>
+                    <!-- previous page link -->
+                    <a class="previous-btn" data-theme="c" data-corners="false" data-role="button" data-inline="true" data-icon="arrow-l" href="#reference2">
+                        Back
+                    </a>
+                </div>
 
             </div>
             <div data-role="footer">
                 <h2>RoadFloodPH</h2>
-                <p class="copyright">&copy; Copyright 2013</p>
-            </div>
-        </div>
-
-        <!-- portfolio page 3 -->
-        <div data-role="page" id="portfolio3" data-title="portfolio3">
-            <div data-role="header">
-                <h1>Portfolio Gallery 1</h1>
-                <a data-role="button" href="#portfolio" data-transition="flip" data-icon="arrow-l" data-corners="false">Back</a>
-            </div>
-            <div data-role="content">
-
-                <!-- gallery images -->
-                <ul id="gallery1" class="gallery">
-                    <li><a href="images/portfolio/4/full/4_1.jpg" rel="external"><img src="images/portfolio/4/thumb/4_1.jpg" alt="portfolio Image 01" /></a></li>
-                    <li><a href="images/portfolio/4/full/4_2.jpg" rel="external"><img src="images/portfolio/4/thumb/4_2.jpg" alt="portfolio Image 02" /></a></li>
-                    <li><a href="images/portfolio/4/full/4_3.jpg" rel="external"><img src="images/portfolio/4/thumb/4_3.jpg" alt="portfolio Image 03" /></a></li>
-                    <li><a href="images/portfolio/4/full/4_4.png" rel="external"><img src="images/portfolio/4/thumb/4_4.png" alt="portfolio Image 04" /></a></li>
-                    <li><a href="images/portfolio/4/full/4_5.png" rel="external"><img src="images/portfolio/4/thumb/4_5.png" alt="portfolio Image 05" /></a></li>
-                    <li><a href="images/portfolio/4/full/4_6.png" rel="external"><img src="images/portfolio/4/thumb/4_6.png" alt="portfolio Image 06" /></a></li>
-                    <li><a href="images/portfolio/4/full/4_7.png" rel="external"><img src="images/portfolio/4/thumb/4_4.png" alt="portfolio Image 07" /></a></li>
-                    <li><a href="images/portfolio/4/full/4_8.png" rel="external"><img src="images/portfolio/4/thumb/4_5.png" alt="portfolio Image 08" /></a></li>
-                    <li><a href="images/portfolio/4/full/4_9.png" rel="external"><img src="images/portfolio/4/thumb/4_6.png" alt="portfolio Image 09" /></a></li>
-                </ul>
-
-            </div>
-            <div data-role="footer">
-                <h2>RoadFloodPH</h2>
-                <p class="copyright">&copy; Copyright 2013</p>
-            </div>
-        </div>
-
-        <!-- portfolio page 4 -->
-        <div data-role="page" id="portfolio4" data-title="portfolio4">
-            <div data-role="header">
-                <h1>Portfolio Gallery 2</h1>
-                <a data-role="button" href="#portfolio" data-transition="flip" data-icon="arrow-l" data-corners="false">Back</a>
-            </div>
-            <div data-role="content">
-
-                <!-- gallery images -->
-                <ul id="gallery2" class="gallery">
-                    <li><a href="images/portfolio/3/full/3_1.jpg" rel="external"><img src="images/portfolio/3/thumb/3_1.jpg" alt="portfolio Image 01" /></a></li>
-                    <li><a href="images/portfolio/3/full/3_2.jpg" rel="external"><img src="images/portfolio/3/thumb/3_2.jpg" alt="portfolio Image 02" /></a></li>
-                    <li><a href="images/portfolio/3/full/3_3.jpg" rel="external"><img src="images/portfolio/3/thumb/3_3.jpg" alt="portfolio Image 03" /></a></li>
-                    <li><a href="images/portfolio/3/full/3_4.jpg" rel="external"><img src="images/portfolio/3/thumb/3_4.jpg" alt="portfolio Image 04" /></a></li>
-                    <li><a href="images/portfolio/3/full/3_1.jpg" rel="external"><img src="images/portfolio/3/thumb/3_1.jpg" alt="portfolio Image 05" /></a></li>
-                    <li><a href="images/portfolio/3/full/3_2.jpg" rel="external"><img src="images/portfolio/3/thumb/3_2.jpg" alt="portfolio Image 06" /></a></li>
-                </ul>
-
-            </div>
-            <div data-role="footer">
-                <h2>RoadFloodPH</h2>
-                <p class="copyright">&copy; Copyright 2013</p>
+                <p class="copyright">&copy; Copyright 2014</p>
             </div>
         </div>
 
@@ -352,14 +311,89 @@
             </div>
             <div data-role="footer">
                 <h2>BS CoE V-1</h2>
-                <p class="copyright">&copy; Copyright 2013</p>
+                <p class="copyright">&copy; Copyright 2014</p>
             </div>
         </div>
 
-        <!-- Contact page -->
-        <div data-role="page" id="contact" data-title="Contact">
+        <!-- Add Unit page -->
+        <div data-role="page" id="add_unit" data-title="Add Unit">
             <div data-role="header">
-                <h1>Contact Me</h1>
+                <h1>Add Unit</h1>
+                <a data-role="button" href="#home" data-icon="home" data-corners="false">Home</a>
+            </div>
+            <div data-role="content">
+                <form method="POST" action="php/contact.php" id="contact" novalidate="novalidate">
+                    <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                        <label for="unit_code" class="ui-input-text">
+                            Unit Code:
+                        </label>
+                        <input type="text" class="required ui-input-text ui-body-d ui-corner-none ui-shadow-inset"
+                        value="" name="unit_code" id="unit_code" data-corners="false">
+                    </div>
+                    <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                        <label for="sim" class="ui-input-text">
+                            Unit SIM Number:
+                        </label>
+                        <input type="text" class="required ui-input-text ui-body-d ui-corner-none ui-shadow-inset"
+                        value="" name="sim" id="sim" data-corners="false" placeholder="+639123456789">
+                    </div>
+					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                        <label for="select-choice-1" class="select">Unit Data Viewing</label>
+						<select name="select-choice-1" id="select-choice-1">
+						  <option value="public">Public</option>
+						  <option value="private">Private</option>
+						</select>
+                    </div>
+					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                        <label for="select-choice-1" class="select">Unit Region</label>
+						<select name="select-choice-1" id="select-choice-1">
+						  <option value="NCR">NCR</option>
+						  <option value="CAR">CAR</option>
+						  <option value="ARMM">ARMM</option>
+						  <option value="r1">1</option>
+						  <option value="r2">2</option>
+						  <option value="r3">3</option>
+						  <option value="r4">4</option>
+						  <option value="r5">5</option>
+						  <option value="r6">6</option>
+						  <option value="r7">7</option>
+						  <option value="r8">8</option>
+						  <option value="r9">9</option>
+						  <option value="r10">10</option>
+						  <option value="r11">11</option>
+						  <option value="r12">12</option>
+						  <option value="r13">13</option>
+						</select>
+                    </div>
+					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                        <label for="unit_name" class="ui-input-text">
+                            Unit Name:
+                        </label>
+                        <input type="text" class="required ui-input-text ui-body-d ui-corner-none ui-shadow-inset"
+                        value="" name="unit_name" id="unit_name" data-corners="false" placeholder="Pureza, Sta. Mesa, Manila">
+                    </div>
+					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                        <label for="unit_name" class="ui-input-text">
+                            Unit SMS Identification Code:
+                        </label>
+                        <input type="text" class="required ui-input-text ui-body-d ui-corner-none ui-shadow-inset"
+                        value="" name="unit_id" id="unit_id" data-corners="false" placeholder="max 10 alphanumeric characters">
+                    </div>
+                    
+                    <button type="submit" data-theme="d" name="submit" value="submit" class="ui-btn-hidden" aria-disabled="false" data-corners="false">Submit</button>
+                </form>
+
+            </div>
+            <div data-role="footer">
+                <h2>BS CoE V-1</h2>
+                <p class="copyright">&copy; Copyright 2014</p>
+            </div>
+        </div>
+		
+		<!-- Unit Manager -->
+        <div data-role="page" id="unit_mgr" data-title="Unit Manager">
+            <div data-role="header">
+                <h1>Unit Manager</h1>
                 <a data-role="button" href="#home" data-icon="home" data-corners="false">Home</a>
             </div>
             <div data-role="content">
@@ -391,9 +425,25 @@
             </div>
             <div data-role="footer">
                 <h2>BS CoE V-1</h2>
-                <p class="copyright">&copy; Copyright 2013</p>
+                <p class="copyright">&copy; Copyright 2014</p>
             </div>
         </div>
-    </body>
+		
+		<!-- Emergency Hotlines -->
+        <div data-role="page" id="emergency" data-title="Emergency Hotlines">
+            <div data-role="header">
+                <h1>Emergency Hotlines</h1>
+                <a data-role="button" href="#home" data-icon="home" data-corners="false">Home</a>
+            </div>
+            <div data-role="content">
+                <p><img src="images/emergency-hotlines.jpg" id="emergency_hotlines" alt="Emergency Hotlines" width="100%" /></p>
+            </div>
+            <div data-role="footer">
+                <h2>BS CoE V-1</h2>
+                <p class="copyright">&copy; Copyright 2014</p>
+            </div>
+        </div>
+    
+	</body>
 
 </html>

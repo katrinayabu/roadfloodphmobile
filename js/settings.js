@@ -5,6 +5,45 @@
     Demo: jquery4u.com/demos/mobileportfoliosite/
 */
 
+$(document).ready(function(){
+
+   $("#adminLoginMsg").hide();
+   
+   $('#flood_gauge').width(293);
+   $('#flood_gauge').mouseover(function()
+   {
+      $(this).css("cursor","pointer");
+   });
+   $("#flood_gauge").toggle(function()
+     {$(this).animate({width: "500px"}, 'slow');},
+     function()
+     {$(this).animate({width: "293px"}, 'slow');
+   });
+   
+   $('#mmda').width(293);
+   $('#mmda').mouseover(function()
+   {
+      $(this).css("cursor","pointer");
+   });
+   $("#mmda").toggle(function()
+     {$(this).animate({width: "500px"}, 'slow');},
+     function()
+     {$(this).animate({width: "293px"}, 'slow');
+   });
+   
+   $('#emergency_hotlines').width(293);
+   $('#emergency_hotlines').mouseover(function()
+   {
+      $(this).css("cursor","pointer");
+   });
+   $("#emergency_hotlines").toggle(function()
+     {$(this).animate({width: "500px"}, 'slow');},
+     function()
+     {$(this).animate({width: "293px"}, 'slow');
+   });
+});
+
+
 (function($,W,D,undefined)
 {
     //MOBILE SITE SETTINGS
